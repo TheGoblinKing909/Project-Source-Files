@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <div class="include_chk">
+      <form id="include_form">
+        <label for="include"><b>Include:</b></label>
+        <br>
+        <input type="checkbox" id="art" name="include[]" value="art">
+        <label for="art">Art</label>
+        <br>
+        <input type="checkbox" id="business" name="include[]" value="business">
+        <label for="business">Business</label>
+        <br>
+        <input type="checkbox" id="education" name="include[]" value="education">
+        <label for="education">Education</label>
+        <br>
+        <input type="checkbox" id="fashion" name="include[]" value="fashion">
+        <label for="fashion">Fashion</label>
+        <br>
+        <input type="checkbox" id="food" name="include[]" value="food">
+        <label for="food">Food &amp; Drink</label>
+        <br>
+        <input type="checkbox" id="health" name="include[]" value="health">
+        <label for="health">Health</label>
+        <br>
+        <input type="checkbox" id="news" name="include[]" value="news">
+        <label for="news">News</label>
+        <br>
+        <input type="checkbox" id="politics" name="include[]" value="politics">
+        <label for="politics">Politics</label>
+        <br>
+        <input type="checkbox" id="science" name="include[]" value="science">
+        <label for="science">Science</label>
+        <br>
+        <input type="checkbox" id="shopping" name="include[]" value="shopping">
+        <label for="shopping">Shopping</label>
+        <br>
+        <input type="checkbox" id="sports" name="include[]" value="sports">
+        <label for="sports">Sports</label>
+        <br>
+        <input type="checkbox" id="technology" name="include[]" value="technology">
+        <label for="technology">Technology</label>
+        <br>
+        <input type="checkbox" id="travel" name="include[]" value="travel">
+        <label for="travel">Travel</label>
+        <br>
+        <input type="checkbox" id="weather" name="include[]" value="weather">
+        <label for="weather">Weather</label>
+        </form>
+      </div>
+
+      <div class="exclude_chk">
+        <form id="exclude_form">
+        <label for="exclude"><b>Exclude:</b></label>
+        <br>
+        <input type="checkbox" id="exclude_art" name="exclude[]" value="art">
+        <label for="exclude_art">Art</label>
+        <br>
+        <input type="checkbox" id="exclude_business" name="exclude[]" value="business">
+        <label for="exclude_business">Business</label>
+        <br>
+        <input type="checkbox" id="exclude_education" name="exclude[]" value="education">
+        <label for="exclude_education">Education</label>
+        <br>
+        <input type="checkbox" id="exclude_fashion" name="exclude[]" value="fashion">
+        <label for="exclude_fashion">Fashion</label>
+        <br>
+        <input type="checkbox" id="exclude_food" name="exclude[]" value="food">
+        <label for="exclude_food">Food & Drink</label>
+        <br>
+        <input type="checkbox" id="exclude_health" name="exclude[]" value="health">
+        <label for="exclude_health">Health</label>
+        <br>
+        <input type="checkbox" id="exclude_news" name="exclude[]" value="news">
+        <label for="exclude_news">News</label>
+        <br>
+        <input type="checkbox" id="excude_politics" name="exclude[]" value="politics">
+        <label for="exclude_politics">Politics</label>
+        <br>
+        <input type="checkbox" id="exclude_science" name="exclude[]" value="science">
+        <label for="exclude_science">Science</label>
+        <br>
+        <input type="checkbox" id="exclude_shopping" name="exclude[]" value="shopping">
+        <label for="exclude_shopping">Shopping</label>
+        <br>
+        <input type="checkbox" id="exclude_sports" name="exclude[]" value="sports">
+        <label for="exclude_sports">Sports</label>
+        <br>
+        <input type="checkbox" id="exclude_technology" name="exclude[]" value="technology">
+        <label for="exclude_technology">Technology</label>
+        <br>
+        <input type="checkbox" id="exclude_travel" name="exclude[]" value="travel">
+        <label for="exclude_travel">Travel</label>
+        <br>
+        <input type="checkbox" id="exclude_weather" name="exclude[]" value="weather">
+        <label for="exclude_weather">Weather</label>
+        <br>
+        </form>
+      </div>
+
+      <div class="Search_box">
+        <input [(ngModel)]="query" placeholder="Enter search term" />
+        <button (click)="search()">Search</button>
+      </div>
+      
+      <div *ngIf="searchResults.length > 0">
+        <div class="SERP">
+        <h2>Search Results:</h2>
+        <ul>
+          <li *ngFor="let result of searchResults">
+            <a [href]="result.link" target="_blank">{{ result.link }}</a>
+          </li>
+        </ul>
+        </div>
+      </div>
+      
+      <div *ngIf="searchResults.length == 0">
+        <div class="SERP">
+          <p>No search results found.</p>
+        </div>
+      </div>
+
+        <div *ngIf="data$ | async as data">
+          <ul>
+            <li *ngFor="let item of data">
+              {{ item.user_id }}
+            </li>
+          </ul>
+        </div>
